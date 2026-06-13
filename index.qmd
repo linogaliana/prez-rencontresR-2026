@@ -1,0 +1,368 @@
+---
+title: R est-il un langage adapté à la production ?
+subtitle: |
+    Rencontres R 2026
+author:
+    - Lino Galiana
+date: 2026-06-13
+slide-number: true
+footer: |
+  Rencontres R 2026 — R et la production
+lang: fr-FR
+slide-tone: false
+chalkboard:
+  theme: whiteboard
+format: revealjs
+#format:
+#  onyxia-revealjs:
+#    incremental: true
+#    output-file: index.html
+controls: true
+css: custom.css
+from: markdown+emoji
+bibliography: references.bib
+---
+
+# Qu'est-ce que la production ? {background-color="#2C3E50"}
+
+## Définition
+
+
+<br>
+
+::: {.callout-important}
+## Mettre en production
+
+Faire [**vivre**]{.blue2} une application dans l'espace de ses [**utilisateurs**]{.blue2}
+:::
+
+<br>
+
+Les trois commandements d'Hadley [@wickham_masiello_r_in_production]:
+
+1. *Not just once*
+2. *Not just me*
+3. *Not just my computer*
+
+
+## Spécificité dans notre contexte
+
+<br> 
+
+3 cycles de vie différents à gérer:
+
+![](/images/environment_clean.png)
+
+## Quelques exemples concrets
+
+| Forme | Exemples |
+|---|---|
+| **API** | Exposer un modèle ML pour servir ses prédictions |
+| **Pipeline automatisé** | ETL quotidien, chaîne de traitement de données |
+| **Application web** | Tableau de bord, outil métier (Shiny) |
+| **Rapport automatique** | Bulletin statistique généré sans intervention |
+
+*Le package n'est pas forcément toujours le meilleur moyen de mise à disposition*
+
+
+## Ce que la production exige du code
+
+::: {.nonincremental}
+1. **Reproductibilité** — le même code donne le même résultat demain
+2. **Robustesse** — gestion des erreurs, logs, monitoring
+3. **Portabilité** — tourne ailleurs que sur votre machine
+4. **Lisibilité** — peut être maintenu par quelqu'un d'autre
+5. **Testabilité** — le comportement est vérifié automatiquement
+:::
+
+::: {.fragment}
+Ces contraintes ne sont pas naturellement au coeur de l'usage interactif.
+:::
+
+# La genèse de R et sa communauté {background-color="#2C3E50"}
+
+## Un langage fait par des statisticiens, pour des statisticiens
+
+- Né dans les années 1990 d'une communauté **académique** de statisticiens
+- Usage principal : **analyser** des données, **produire** des figures et tableaux
+- Le `data.frame` comme objet central — le monde vu comme un tableau structuré
+- Un paradigme **interactif** : on dialogue avec ses données
+
+::: {.fragment}
+Ces choix sont extrêmement bien adaptés à leur contexte d'origine.
+:::
+
+::: {.notes}
+R est une implémentation libre du langage S créé aux Bell Labs. Il a été conçu pour que des statisticiens puissent analyser des données sans avoir besoin d'être programmeurs professionnels.
+:::
+
+## L'élargissement progressif de la communauté
+
+**Communauté initiale (années 90-2000)**
+
+- Statisticiens académiques, chercheurs en bioinformatique
+- Culture forte de la **reproductibilité scientifique**
+- Émergence de `Sweave`, puis `R Markdown` → innovation majeure
+
+::: {.fragment}
+**Deuxième vague (années 2010)**
+
+- Data analysts en entreprise
+- Data scientists issus de formations universitaires
+- Quelques développeurs attirés par la reproductibilité
+:::
+
+::: {.notes}
+Le tidyverse a beaucoup contribué à élargir l'audience. Il a rendu R accessible à des publics non-statisticiens mais data-oriented.
+:::
+
+## R vs Python : des origines qui marquent
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**R**
+
+- Né dans la recherche statistique
+- L'analyste de données comme utilisateur central
+- IDE dominante dès le départ (RStudio)
+- Reproductibilité comme valeur fondatrice
+:::
+
+::: {.column width="50%"}
+**Python**
+
+- Né comme langage généraliste
+- Le développeur comme utilisateur central
+- Terminal, scripts, ligne de commande
+- Bibliothèques data venues ensuite (NumPy 2006, pandas 2008)
+:::
+
+::::
+
+::: {.fragment}
+La communauté Python data science a **hérité** d'une culture dev ; la communauté R data science a dû **l'acquérir**.
+:::
+
+# L'écosystème R face aux exigences de la production {background-color="#2C3E50"}
+
+## Ce que R sait déjà très bien faire
+
+L'écosystème a évolué. Les outils existent :
+
+| Besoin | Outil R |
+|---|---|
+| Environnements reproductibles | `{renv}` |
+| Pipelines de données | `{targets}` |
+| API REST | `{plumber}`, `{vetiver}` |
+| Tests unitaires | `{testthat}` |
+| Applications web | `{shiny}` |
+| Packaging | `{devtools}`, `{usethis}` |
+
+::: {.fragment}
+Le problème n'est pas l'**absence d'outils**, c'est leur **taux d'adoption**.
+:::
+
+## Les lacunes du tooling
+
+Comparé à Python et à l'écosystème JavaScript :
+
+- **Linting / style** : `{lintr}`, `{styler}` existent mais sans convention partagée dominante (cf. PEP 8, ESLint)
+- **Gestion des dépendances** : `{renv}` efficace mais moins universel que `pip` + `pyproject.toml`
+- **CI/CD** : possible (GitHub Actions), mais moins de templates, moins d'habitudes
+- **Conteneurisation** : Dockerfiles R moins standardisés, images Rocker sous-utilisées
+
+::: {.fragment}
+En Python, ces pratiques sont **normalisées** ; en R, elles restent **optionnelles**.
+:::
+
+## La culture de l'IDE intégré
+
+RStudio a été un facteur clé d'adoption de R — et un facteur de dépendance :
+
+- Point-and-click pour installer des packages, lancer des scripts
+- L'environnement de travail **global** comme espace de travail naturel
+- La console comme interface principale, pas le terminal système
+
+::: {.fragment}
+Conséquence : une relation **distante avec la ligne de commande**
+
+```bash
+# Un développeur Python/JS fait ça naturellement
+cd mon-projet && python -m pytest && git push
+```
+
+```r
+# Un analyste R passe souvent par RStudio
+# Ctrl+Shift+T pour les tests, bouton "Push" pour git
+```
+:::
+
+::: {.notes}
+Ce n'est pas une critique de RStudio — c'est un excellent outil. Mais il a créé une culture où la ligne de commande n'est pas naturelle, et c'est problématique en production.
+:::
+
+## La ligne de commande, enjeu sous-estimé
+
+En production, les scripts s'exécutent **sans IDE** :
+
+```bash
+# Orchestrateur Airflow, cron job, CI/CD...
+Rscript mon_pipeline.R
+```
+
+::: {.fragment}
+Or la culture R tend vers :
+
+- Des scripts qui supposent un **working directory** implicite (le projet RStudio)
+- Des chemins **relatifs non portables** (`~/mes_donnees/fichier.csv`)
+- Des **`library()`** sans version — "ça marche chez moi"
+- Des objets chargés depuis `.RData` automatique au démarrage
+:::
+
+::: {.fragment}
+Ces habitudes sont **indolores en interactif**, **catastrophiques en production**.
+:::
+
+# Le hiatus avec les développeurs {background-color="#2C3E50"}
+
+## Deux mondes qui se parlent peu
+
+La communauté R évolue dans son propre écosystème :
+
+- **CRAN** comme registre central, avec ses propres standards
+- **Bioconductor** pour le bio
+- **tidyverse** comme norme de facto
+
+::: {.fragment}
+Les développeurs classiques (Python, JS, Java...) :
+
+- Ne connaissent pas R, souvent n'en ont jamais entendu parler
+- Ont leurs propres conventions, outils, cultures CI/CD
+- Travaillent avec Git, Docker, terminaux — nativement
+:::
+
+## Intégration dans des équipes mixtes
+
+Dans une organisation tech, R crée des frictions spécifiques :
+
+- **Code review** difficile si le reviewer ne lit pas R
+- **Infrastructure** : devops qui ne sait pas dockeriser R
+- **Conventions** incompatibles avec celles de l'équipe (nommage, structure)
+- **Onboarding** : un nouveau dev Python est perdu dans un projet R
+
+::: {.fragment}
+Python occupe un espace intermédiaire : lisible par les devs, utilisable par les data scientists.
+:::
+
+::: {.notes}
+Ce n'est pas propre à R — Julia a les mêmes problèmes. Mais Python bénéficie d'une double légitimité dans les organisations tech.
+:::
+
+## Python, le langage à deux visages
+
+Python est **nativement** compris par deux communautés :
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Communauté data**
+
+- `pandas`, `scikit-learn`, `matplotlib`
+- Notebooks Jupyter
+- Exploratoire, interactif
+:::
+
+::: {.column width="50%"}
+**Communauté dev**
+
+- `FastAPI`, `pytest`, `mypy`
+- CLI, scripts, CI/CD
+- Robuste, testé, déployable
+:::
+
+::::
+
+::: {.fragment}
+Un analyste Python peut **progressivement** adopter les pratiques dev sans changer de langage.
+
+En R, ce chemin est plus **discontinu**.
+:::
+
+# Conclusion : une question de pratiques {background-color="#2C3E50"}
+
+## R est-il adapté à la production ?
+
+**Techniquement : oui.**
+
+L'écosystème R dispose des outils nécessaires pour produire du code de qualité production.
+
+::: {.fragment}
+**En pratique : c'est plus nuancé.**
+
+Les limites sont moins dans les **outils** que dans les **pratiques** et la **culture** :
+
+- Faible adoption du linting et des conventions de style
+- Culture ligne de commande moins présente
+- Moins d'habitudes de tests automatisés
+- Gap plus fort avec les équipes dev classiques
+:::
+
+## Les bonnes nouvelles
+
+La communauté R évolue dans la bonne direction :
+
+- `{targets}` normalise les pipelines reproductibles
+- `{renv}` s'est imposé pour la gestion des dépendances
+- Quarto a étendu la logique `R Markdown` vers des cas d'usage plus larges
+- *R in Production* (Wickham & Masiello, 2025) documente les meilleures pratiques
+
+::: {.fragment}
+Et R garde des **avantages irremplaçables** :
+
+- Statistiques, modélisation, visualisation de haut niveau
+- Reproductibilité scientifique
+- Communauté métier (économistes, épidémiologistes, statisticiens publics...)
+:::
+
+## Ce que les praticiens peuvent faire
+
+Pour réduire le hiatus :
+
+1. **Adopter la ligne de commande** — `Rscript`, `make`, terminaux
+2. **Versionner les environnements** — `{renv}` systématiquement
+3. **Tester** — `{testthat}` même pour des scripts de traitement
+4. **Linter** — `{lintr}` en CI/CD
+5. **Structurer comme un package** — même pour les projets internes
+6. **Apprendre de la communauté Python** — les pratiques de production, pas les outils
+
+::: {.fragment}
+Le vrai frein, c'est **l'habitude** — pas le langage.
+:::
+
+## En résumé
+
+::: {.nonincremental}
+- La **production** exige reproductibilité, robustesse, portabilité
+- R est né pour l'**analyse interactive** — ses forces sont aussi ses contraintes
+- L'**écosystème** s'est adapté (renv, targets, plumber, testthat)
+- La **culture** n'a pas encore pleinement suivi : moindre culture CLI, tests, conventions
+- Le **hiatus** avec les devs est plus fort qu'en Python
+- Les limites sont plus dans les **pratiques** que dans les **outils**
+:::
+
+::: {.fragment}
+**R peut aller en production — à condition d'apporter les pratiques avec soi.**
+:::
+
+## Références et ressources
+
+- Wickham, H. & Masiello, K. — *R in Production* — [r-in-production.org](https://r-in-production.org/)
+- Package `{targets}` — pipelines reproductibles — [books.ropensci.org/targets](https://books.ropensci.org/targets/)
+- Package `{renv}` — environnements reproductibles
+- Package `{plumber}` / `{vetiver}` — déploiement de modèles et API
+- *The Pragmatic Programmer* (Hunt & Thomas) — culture du développeur
+
+::: {.fragment}
+Slides disponibles sur : [github.com/linogaliana](https://github.com/linogaliana)
+:::
