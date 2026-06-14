@@ -64,7 +64,7 @@ Les trois commandements d'Hadley [@wickham_masiello_r_in_production]:
 
 *Le package n'est pas forcément toujours le meilleur moyen de mise à disposition*
 
-
+<!----
 ## Ce que la production exige du code
 
 ::: {.nonincremental}
@@ -78,71 +78,38 @@ Les trois commandements d'Hadley [@wickham_masiello_r_in_production]:
 ::: {.fragment}
 Ces contraintes ne sont pas naturellement au coeur de l'usage interactif.
 :::
+---->
 
-# La genèse de R et sa communauté {background-color="#2C3E50"}
+# Détour historique {background-color="#2C3E50"}
 
 ## Un langage fait par des statisticiens, pour des statisticiens
 
-- Né dans les années 1990 d'une communauté **académique** de statisticiens
-- Usage principal : **analyser** des données, **produire** des figures et tableaux
-- Le `data.frame` comme objet central — le monde vu comme un tableau structuré
+- Usage principal : analyser des données, produire des figures et tableaux
+    - Né dans les années 1990 d'une communauté académique de statisticiens
+    - Le `data.frame` comme objet central
+    - Un nombre limité d'objets de base 
+
+. . .
+
 - Un paradigme **interactif** : on dialogue avec ses données
+    - Un choix bien adapté au contexte d'origine
 
-::: {.fragment}
-Ces choix sont extrêmement bien adaptés à leur contexte d'origine.
-:::
-
-::: {.notes}
-R est une implémentation libre du langage S créé aux Bell Labs. Il a été conçu pour que des statisticiens puissent analyser des données sans avoir besoin d'être programmeurs professionnels.
-:::
 
 ## L'élargissement progressif de la communauté
 
-**Communauté initiale (années 90-2000)**
+* La révolution *data* a accru la taille de la communauté des utilisateurs
+    * Principalement dans les entreprises proches de la recherche académique en statistiques (là où SAS dominait)
+    * Comme `R`, `Python` s'est ouvert à la *data* mais bénéficiait déjà d'un ancrage dans la communauté *computer science*
 
-- Statisticiens académiques, chercheurs en bioinformatique
-- Culture forte de la **reproductibilité scientifique**
-- Émergence de `Sweave`, puis `R Markdown` → innovation majeure
+. . .
 
-::: {.fragment}
-**Deuxième vague (années 2010)**
+* `tidyverse` (grammaire) et `Rstudio` (IDE tout en un) ont permis à de nouveaux profils de se mettre à `R`
 
-- Data analysts en entreprise
-- Data scientists issus de formations universitaires
-- Quelques développeurs attirés par la reproductibilité
-:::
+. . .
 
-::: {.notes}
-Le tidyverse a beaucoup contribué à élargir l'audience. Il a rendu R accessible à des publics non-statisticiens mais data-oriented.
-:::
+* Une communauté attachée aux enjeux de reproductibilité
+    * Influence reste forte de la communauté scientifique initiale
 
-## R vs Python : des origines qui marquent
-
-:::: {.columns}
-
-::: {.column width="50%"}
-**R**
-
-- Né dans la recherche statistique
-- L'analyste de données comme utilisateur central
-- IDE dominante dès le départ (RStudio)
-- Reproductibilité comme valeur fondatrice
-:::
-
-::: {.column width="50%"}
-**Python**
-
-- Né comme langage généraliste
-- Le développeur comme utilisateur central
-- Terminal, scripts, ligne de commande
-- Bibliothèques data venues ensuite (NumPy 2006, pandas 2008)
-:::
-
-::::
-
-::: {.fragment}
-La communauté Python data science a **hérité** d'une culture dev ; la communauté R data science a dû **l'acquérir**.
-:::
 
 # L'écosystème R face aux exigences de la production {background-color="#2C3E50"}
 
