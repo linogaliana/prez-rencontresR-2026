@@ -12,6 +12,7 @@ lang: fr-FR
 slide-tone: false
 chalkboard:
   theme: whiteboard
+width: 1200
 format: revealjs
 #format:
 #  onyxia-revealjs:
