@@ -4,10 +4,10 @@ subtitle: |
     Rencontres {{< fa brands r-project >}} 2026
 author:
     - Lino Galiana
-date: 17 juin 2026
+date: 2026-06-17
 slide-number: true
 footer: |
-  Rencontres R 2026
+  Rencontres {{< fa brands r-project >}} 2026
 lang: fr-FR
 slide-tone: false
 chalkboard:
