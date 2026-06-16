@@ -1,5 +1,5 @@
 ---
-title: "R est-il un langage adapté à la production ?"
+title: "{{< fa brands r-project  >}} est-il un langage adapté à la production ?"
 subtitle: |
     Rencontres {{< fa brands r-project >}} 2026
 author:
@@ -55,7 +55,7 @@ Les trois commandements d'Hadley [@wickham_masiello_r_in_production]:
 
 <br> 
 
-3 cycles de vie différents à gérer:
+[**3 cycles de vie**]{.orange} différents à gérer:
 
 ![](/images/environment_clean.png)
 
@@ -78,42 +78,47 @@ Le package n'est pas toujours le moyen de partage de code le plus adapté
 ## Par des statisticiens, pour des statisticiens
 
 - Usage principal de {{< fa brands r-project >}} : analyser des données, produire des figures et tableaux
-    - Né dans les années 1990 d'une communauté académique de statisticiens
     - Le `data.frame` comme objet central
-    - Un nombre limité d'objets de base 
+    - Un [**nombre limité d'objets**]{.blue2} de base 
+
+. . .
+
+- Né dans les années 1990 d'une [**communauté académique de statisticiens**]{.orange2}
 
 ## Le paradigme de l'interactivité
 
-* On dialogue avec ses données (essai/erreur):
+* On [**dialogue avec ses données**]{.orange2} (essai/erreur):
     * Exporte le résultat vers un autre *medium* (e.g. un papier académique)
 
 . . .
 
-* Un choix bien adapté au contexte d'origine
+* Un choix bien adapté au [**contexte d'origine**]{.orange2}
     * {{< fa brands r-project >}} souvent enseigné comme premier langage dans un cursus académique
     * Comme substitut à un outil clique-bouton...
-    * ... Mais pas forcément pour la programmation.
+    * ... Mais [**pas forcément pour la programmation**]{.blue2}.
 
 
 ## L'élargissement progressif de la communauté
 
-* Révolution *data*:
+* __[Révolution *data*]{.orange2}__:
     * Succès dans des entreprises proches de la recherche académique en statistiques (là où SAS dominait)
-    * {{< fa brands python >}} s'est ouvert plus tard à la *data* mais bénéficiait déjà d'un ancrage dans la communauté *computer science*
+    * {{< fa brands python >}}: ouvert plus tard à la *data* mais déjà un ancrage dans la communauté *computer science*
 
 . . .
 
-* `shiny` (effet wahou), `tidyverse` (grammaire) `RStudio` (IDE tout en un) ont permis à de nouveaux profils de se mettre à `R`
+* `shiny` (effet wahou), `tidyverse` (grammaire), `RStudio` (IDE tout en un) ont permis à de **[nouveaux profils de se mettre à {{< fa brands r-project >}}]{.orange2}**
 
 ## La reproductibilité, une notion au centre de l'écosystème `R`
 
-* Une communauté attachée aux enjeux de reproductibilité
+* Une communauté attachée aux enjeux de [**reproductibilité**]{.orange2}
     * Influence de la communauté scientifique reste forte
 
 . . .
 
-* Origine de `R Markdown` avant `Quarto`
-
+* Origine de `R Markdown` avant `Quarto` (❤️)
+  * Beaucoup mieux que les *notebooks* `Jupyter` pour la reproductibilité !
+  * `Quarto` est un gros progrès dans le domaine
+ 
 
 # {{< fa brands r-project >}} en production ? {background-color="#2C3E50"}
 
@@ -168,7 +173,7 @@ Le package n'est pas toujours le moyen de partage de code le plus adapté
 . . .
 
 * Communauté {{< fa brands python >}} a changé ses pratiques ces dernières années
-  * Moins de `Jupyter` *notebooks* 
+  * Moins de `Jupyter` *notebooks*, plus de *linting* (`Ruff`)
   * Plus de dialogue avec devs, data engineers
 
 
