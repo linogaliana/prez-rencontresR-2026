@@ -1,0 +1,93 @@
+[
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "R est-il un langage adapté à la production ?",
+    "section": "Introduction",
+    "text": "Introduction\n\nQu’est-ce que la production ?\nUn détour historique\n en production: enjeux et limites"
+  },
+  {
+    "objectID": "index.html#définition",
+    "href": "index.html#définition",
+    "title": "R est-il un langage adapté à la production ?",
+    "section": "Définition",
+    "text": "Définition\n\n\n\n\n\n\n\nMettre en production\n\n\nFaire vivre une application dans l’espace de ses utilisateurs\n\n\n\n\nLes trois commandements d’Hadley (Wickham et Masiello 2025):\n\nNot just once\nNot just me\nNot just my computer"
+  },
+  {
+    "objectID": "index.html#spécificité-dans-notre-contexte",
+    "href": "index.html#spécificité-dans-notre-contexte",
+    "title": "R est-il un langage adapté à la production ?",
+    "section": "Spécificité dans notre contexte",
+    "text": "Spécificité dans notre contexte\n\n3 cycles de vie différents à gérer:"
+  },
+  {
+    "objectID": "index.html#quelques-exemples-concrets",
+    "href": "index.html#quelques-exemples-concrets",
+    "title": "R est-il un langage adapté à la production ?",
+    "section": "Quelques exemples concrets",
+    "text": "Quelques exemples concrets\n\n\n\n\n\n\n\nType d’output\nExemples\n\n\n\n\nAPI\nExposer un modèle ML pour servir ses prédictions\n\n\nBase de données\nPipeline automatisé avec un ETL quotidien, chaîne de traitement de données\n\n\nApplication web\nTableau de bord, outil métier\n\n\nRapport automatique\nNote générée sans intervention\n\n\n\n\n\n\n\n\n\nNote\n\n\nLe package n’est pas toujours le moyen de partage de code le plus adapté"
+  },
+  {
+    "objectID": "index.html#par-des-statisticiens-pour-des-statisticiens",
+    "href": "index.html#par-des-statisticiens-pour-des-statisticiens",
+    "title": "R est-il un langage adapté à la production ?",
+    "section": "Par des statisticiens, pour des statisticiens",
+    "text": "Par des statisticiens, pour des statisticiens\n\nUsage principal de  : analyser des données, produire des figures et tableaux\n\nNé dans les années 1990 d’une communauté académique de statisticiens\nLe data.frame comme objet central\nUn nombre limité d’objets de base"
+  },
+  {
+    "objectID": "index.html#le-paradigme-de-linteractivité",
+    "href": "index.html#le-paradigme-de-linteractivité",
+    "title": "R est-il un langage adapté à la production ?",
+    "section": "Le paradigme de l’interactivité",
+    "text": "Le paradigme de l’interactivité\n\nOn dialogue avec ses données (essai/erreur):\n\nExporte le résultat vers un autre medium (e.g. un papier académique)\n\n\n\n\nUn choix bien adapté au contexte d’origine\n\n souvent enseigné comme premier langage dans un cursus académique\nComme substitut à un outil clique-bouton…\n… Mais pas forcément pour la programmation."
+  },
+  {
+    "objectID": "index.html#lélargissement-progressif-de-la-communauté",
+    "href": "index.html#lélargissement-progressif-de-la-communauté",
+    "title": "R est-il un langage adapté à la production ?",
+    "section": "L’élargissement progressif de la communauté",
+    "text": "L’élargissement progressif de la communauté\n\nRévolution data:\n\nSuccès dans des entreprises proches de la recherche académique en statistiques (là où SAS dominait)\n s’est ouvert plus tard à la data mais bénéficiait déjà d’un ancrage dans la communauté computer science\n\n\n\n\nshiny (effet wahou), tidyverse (grammaire) RStudio (IDE tout en un) ont permis à de nouveaux profils de se mettre à R"
+  },
+  {
+    "objectID": "index.html#la-reproductibilité-une-notion-au-centre-de-lécosystème-r",
+    "href": "index.html#la-reproductibilité-une-notion-au-centre-de-lécosystème-r",
+    "title": "R est-il un langage adapté à la production ?",
+    "section": "La reproductibilité, une notion au centre de l’écosystème R",
+    "text": "La reproductibilité, une notion au centre de l’écosystème R\n\nUne communauté attachée aux enjeux de reproductibilité\n\nInfluence de la communauté scientifique reste forte\n\n\n\n\nOrigine de R Markdown avant Quarto"
+  },
+  {
+    "objectID": "index.html#un-code-en-production-doit-être",
+    "href": "index.html#un-code-en-production-doit-être",
+    "title": "R est-il un langage adapté à la production ?",
+    "section": "Un code en production doit être:",
+    "text": "Un code en production doit être:\n\nTraçable: gestion des erreurs, logs, monitoring\n\n\n\nPortable: tourne ailleurs que sur votre machine\n\n\n\n\nLisible: peut être maintenu par quelqu’un d’autre\n\n\n\n\nTestable: le comportement est vérifié automatiquement\n\n\n\n\nReproductible: on est capable d’isoler l’effet des changements de code, de configuration ou de données pour reproduire des résultats"
+  },
+  {
+    "objectID": "index.html#linteractivité-effet-pervers",
+    "href": "index.html#linteractivité-effet-pervers",
+    "title": "R est-il un langage adapté à la production ?",
+    "section": "L’interactivité, effet pervers",
+    "text": "L’interactivité, effet pervers\n\nEn production, pas d’IDE\n\nImplique d’avoir une logique de code différente (logging, configuration, etc.)\nProblème connu dans la communauté  avec les notebooks Jupyter\n\n\n\n\nBeaucoup de configurations passent directement par la session R:\n\ninstall.packages vs pip install\nrenv vs uv\n\n\n\n\n\nEncore une culture limitée de la ligne de commande (y compris pour Git)\n\nEffet pervers de l’esprit d’entraide de la communauté R ?\nLimite du un outil pour tout (ex: interface Shiny au lieu de Quarto + Javascript)"
+  },
+  {
+    "objectID": "index.html#quelle-différence-avec-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206272616e647320707974686f6e203e7d7d",
+    "href": "index.html#quelle-différence-avec-b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c206661206272616e647320707974686f6e203e7d7d",
+    "title": "R est-il un langage adapté à la production ?",
+    "section": "Quelle différence avec  ?",
+    "text": "Quelle différence avec  ?\n\nPython plus contraignant sur la modularité que R\n\n\n\nRégulièrement des nouveautés utiles à la production :\n\nargparse (&gt;=3.2, 2011) venv (&gt;=3.3, 2012), pathlib (&gt;=3.4, 2014), type hinting (&gt;=3.5, 2015), f-string (&gt;=3.6, 2016), tomllib et amélioration du traceback (&gt;3.11, 2022)…\n\n\n\n\n\nCommunauté  a changé ses pratiques ces dernières années\n\nMoins de Jupyter notebooks\nPlus de dialogue avec devs, data engineers"
+  },
+  {
+    "objectID": "index.html#r-est-il-adapté-à-la-production",
+    "href": "index.html#r-est-il-adapté-à-la-production",
+    "title": "R est-il un langage adapté à la production ?",
+    "section": "R est-il adapté à la production ?",
+    "text": "R est-il adapté à la production ?\n\nTechniquement : oui.\n\nLes outils nécessaires existent, même s’ils sont moins aboutis qu’en Python.\n\n\n\nEn pratique : c’est plus nuancé.\nLes limites sont moins dans les outils que dans les pratiques et la culture :\n\nFaible adoption du linting et des conventions de style\nCulture ligne de commande moins présente\nGap plus fort avec les équipes dev classiques"
+  },
+  {
+    "objectID": "index.html#références",
+    "href": "index.html#références",
+    "title": "R est-il un langage adapté à la production ?",
+    "section": "Références",
+    "text": "Références\n\n\n\n\nWickham, Hadley, et Katie Masiello. 2025. R in Production. https://r-in-production.org/."
+  }
+]
