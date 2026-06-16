@@ -55,7 +55,7 @@ Les trois commandements d'Hadley [@wickham_masiello_r_in_production]:
 
 <br> 
 
-[**3 cycles de vie**]{.orange} différents à gérer:
+[**3 cycles de vie**]{.orange2} différents à gérer:
 
 ![](/images/environment_clean.png)
 
@@ -189,7 +189,7 @@ Le package n'est pas toujours le moyen de partage de code le plus adapté
 
 . . .
 
-* [**Plutôt une histoire d'outils et de pratiques**]{.orange}:
+* [**Plutôt une histoire d'outils et de pratiques**]{.orange2}:
   - Faible adoption du *linting*, des environnements virtuels
   - Culture CLI moins présente
   - Gap plus fort avec les profils devs, les *data engineers* 
