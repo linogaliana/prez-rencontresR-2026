@@ -1,7 +1,7 @@
 ---
-title: "{{< fa brands r-project  >}} est-il un langage adapté à la production ?"
+title: "[{{< fa brands r-project  >}}]{.blue2} est-il un langage adapté à la production ?"
 subtitle: |
-    Rencontres {{< fa brands r-project >}} 2026
+    Rencontres [{{< fa brands r-project >}}]{.blue2} 2026
 author:
     - Lino Galiana
 date: 2026-06-17
@@ -108,7 +108,7 @@ Le package n'est pas toujours le moyen de partage de code le plus adapté
 
 * `shiny` (effet wahou), `tidyverse` (grammaire), `RStudio` (IDE tout en un) ont permis à de **[nouveaux profils de se mettre à {{< fa brands r-project >}}]{.orange2}**
 
-## La reproductibilité, une notion au centre de l'écosystème `R`
+## La reproductibilité, notion au centre de l'écosystème {{< fa brands r-project >}}
 
 * Une communauté attachée aux enjeux de [**reproductibilité**]{.orange2}
     * Influence de la communauté scientifique reste forte
@@ -116,83 +116,83 @@ Le package n'est pas toujours le moyen de partage de code le plus adapté
 . . .
 
 * Origine de `R Markdown` avant `Quarto` (❤️)
-  * Beaucoup mieux que les *notebooks* `Jupyter` pour la reproductibilité !
-  * `Quarto` est un gros progrès dans le domaine
+  * Mieux que les *notebooks* `Jupyter` pour la reproductibilité !
+  * `Quarto`: gros progrès dans le domaine par rapport à {{< fa brands r-project >}} +$\LaTeX$
  
 
 # {{< fa brands r-project >}} en production ? {background-color="#2C3E50"}
 
 ## Un code en production doit être:
 
-* **Traçable**: gestion des erreurs, *logs*, monitoring
+* [**Traçable**]{.orange2}: gestion des erreurs, *logs*, monitoring
 
 . . .
 
-* **Portable**: tourne ailleurs que sur votre machine
+* [**Portable**]{.orange2}: tourne ailleurs que sur votre machine
 
 . . .
 
-* **Lisible**: peut être maintenu par quelqu'un d'autre
+* [**Lisible**]{.orange2}: peut être maintenu par quelqu'un d'autre
 
 . . .
 
-* **Testable**: le comportement est vérifié automatiquement
+* [**Testable**]{.orange2}: le comportement est vérifié automatiquement
 
 . . .
 
-* **Reproductible**: on est capable d'isoler l'effet des changements de code, de configuration ou de données pour reproduire  des résultats
+* [**Reproductible**]{.orange2}: on est capable d'isoler l'effet des changements de code, de configuration ou de données pour reproduire  des résultats
 
 
 ## L'interactivité, effet pervers {.smaller}
 
-* En production, pas d'IDE
-  * Implique d'avoir une logique de code différente (*logging*, configuration, etc.)
+* En production, [**pas d'IDE**]{.orange2}
+  * Implique d'avoir une [**logique de code différente**]{.blue2} (*logging*, configuration, etc.)
   * Problème connu dans la communauté {{< fa brands python >}} avec les *notebooks* `Jupyter`
 
 . . .
 
-* Beaucoup de configurations passent directement par la session `R`:
+* Beaucoup de [**configurations passent directement par la session {{< fa brands r-project >}}**]{.orange2} :
   * `install.packages` vs `pip install`
   * `renv` vs `uv`
+  * `ruff` vs `styler`
 
 . . .
 
-* Encore une culture limitée de la ligne de commande (y compris pour `Git`)
-  * Effet pervers de l'esprit d'entraide de la communauté `R` ?
+* Encore une [**culture limitée de la ligne de commande**]{.orange2} (y compris pour `Git` {{< fa brands git-alt >}} )
+  * Effet pervers de l'esprit d'entraide de la communauté {{< fa brands r-project >}} ?
   * Limite du *un outil pour tout* (ex: interface `Shiny` au lieu de `Quarto` + `Javascript`)
 
 ## Quelle différence avec {{< fa brands python >}} ?
 
-* `Python` plus contraignant sur la modularité que `R`
+* {{< fa brands python >}} [**plus contraignant**]{.orange2} sur la modularité que {{< fa brands r-project >}}
 
 . . .
 
-* Régulièrement des nouveautés utiles à la production : 
-    * `argparse` (>=3.2, 2011) `venv` (>=3.3, 2012), `pathlib` (>=3.4, 2014), _type hinting_ (>=3.5, 2015), *f-string* (>=3.6, 2016), `tomllib` et amélioration du *traceback* (>3.11, 2022)...
-
-. . .
-
-* Communauté {{< fa brands python >}} a changé ses pratiques ces dernières années
+* Communauté {{< fa brands python >}} [**a changé ses pratiques**]{.orange2} ces dernières années
   * Moins de `Jupyter` *notebooks*, plus de *linting* (`Ruff`)
   * Plus de dialogue avec devs, data engineers
+  * Moins de travail en solo
 
 
+::: {.callout-tip}
+## Régulièrement des nouveautés utiles à la production
+
+`argparse` (>=3.2, 2011) `venv` (>=3.3, 2012), `pathlib` (>=3.4, 2014), _type hinting_ (>=3.5, 2015), *f-string* (>=3.6, 2016), `tomllib` et amélioration du *traceback* (>3.11, 2022)...
+:::
 
 # Conclusion : une histoire d'outils et de pratiques  {background-color="#2C3E50"}
 
 ## R est-il adapté à la production ?
 
-* **Techniquement : oui.**
-    + Les outils nécessaires existent, même s'ils sont moins aboutis qu'en `Python`.
+* [**Techniquement : oui.**]{.orange2}
+    + Les outils nécessaires existent, même s'ils sont moins aboutis qu'en {{< fa brands r-project >}}.
 
 . . .
 
-**En pratique : c'est plus nuancé.**
-
-Les limites sont moins dans les **outils** que dans les **pratiques** et la **culture** :
-
-- Faible adoption du linting et des conventions de style
-- Culture ligne de commande moins présente
-- Gap plus fort avec les équipes dev classiques
+* [**Plutôt une histoire d'outils et de pratiques**]{.orange}:
+  - Faible adoption du *linting*, des environnements virtuels
+  - Culture CLI moins présente
+  - Gap plus fort avec les profils devs, les *data engineers* 
+  - Culture encore limitée du travail collaboratif 
 
 ## Références
