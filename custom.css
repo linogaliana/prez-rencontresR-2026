@@ -51,10 +51,7 @@
     font-size: 0.9em !important;
 }
 
-@media print {
-    @page {
-        size: 1200px 700px;
-        margin: 0;
-    }
+html.print-pdf .reveal .footer {
+    display: none;
 }
 

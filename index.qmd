@@ -7,7 +7,7 @@ author:
 date: 2026-06-17
 slide-number: true
 footer: |
-  Rencontres {{< fa brands r-project >}} 2026
+  Rencontres [{{< fa brands r-project >}}]{.blue2} 2026
 lang: fr-FR
 slide-tone: false
 chalkboard:
@@ -26,9 +26,17 @@ bibliography: references.bib
 
 ## Introduction
 
+<br>
+
 1. Qu'est-ce que la production ?
-2. Un détour historique
-3. {{< fa brands r-project >}} en production: enjeux et limites
+
+. . .
+
+2. Détour historique
+
+. . .
+
+3. [{{< fa brands r-project >}}]{.blue2} en production: enjeux et limites
 
 # Qu'est-ce que la production ? {background-color="#2C3E50"}
 
