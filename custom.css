@@ -55,3 +55,8 @@ html.print-pdf .reveal .footer {
     display: none;
 }
 
+@page {
+    size: 12.5in 7.29in;
+    margin: 0;
+}
+

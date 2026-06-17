@@ -189,17 +189,17 @@ Le package n'est pas toujours le moyen de partage de code le plus adapté
 
 # Conclusion : une histoire d'outils et de pratiques  {background-color="#2C3E50"}
 
-## R est-il adapté à la production ?
+## {{< fa brands r-project >}} est-il adapté à la production ?
 
 * [**Techniquement : oui.**]{.orange2}
-    + Les outils nécessaires existent, même s'ils sont moins aboutis qu'en {{< fa brands r-project >}}.
+    + Les outils nécessaires existent, même s'ils sont moins aboutis qu'en {{< fa brands python >}} ou {{< fa brands js-square >}}.
 
 . . .
 
 * [**Plutôt une histoire d'outils et de pratiques**]{.orange2}:
-  - Faible adoption du *linting*, des environnements virtuels
-  - Culture CLI moins présente
-  - Gap plus fort avec les profils devs, les *data engineers* 
-  - Culture encore limitée du travail collaboratif 
+  - Faible adoption du [__*linting*__]{.blue2}, des [**environnements virtuels**]{.blue2}
+  - [**Culture CLI**]{.blue2} moins présente
+  - [**Gap plus fort**]{.blue2} avec les profils devs, les *data engineers* 
+  - Culture encore limitée du [**travail collaboratif**]{.blue2}
 
 ## Références
