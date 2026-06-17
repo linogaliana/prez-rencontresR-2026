@@ -131,7 +131,7 @@ Le package n'est pas toujours le moyen de partage de code le plus adapté
 
 ## Un code en production doit être:
 
-* [**Traçable**]{.orange2}: gestion des erreurs, *logs*, monitoring
+* [**Traçable**]{.orange2}: gestion des erreurs, *logs*, monitoring, versionnage
 
 . . .
 
