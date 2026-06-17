@@ -53,11 +53,10 @@ Les trois commandements d'Hadley [@wickham_masiello_r_in_production]:
 
 ## Spécificité dans notre contexte
 
-<br> 
+* [**3 cycles de vie**]{.orange2} différents à gérer:
 
-[**3 cycles de vie**]{.orange2} différents à gérer:
+![_Image empruntée au cours de ["Mise en production de projets data science"](https://ensae-reproductibilite.github.io/)_](/images/environment_clean.png)
 
-![](/images/environment_clean.png)
 
 ## Quelques exemples concrets {.smaller}
 
@@ -168,7 +167,7 @@ Le package n'est pas toujours le moyen de partage de code le plus adapté
 
 . . .
 
-* Communauté {{< fa brands python >}} [**a changé ses pratiques**]{.orange2} ces dernières années
+* Communauté {{< fa brands python >}} [**a changé ses pratiques**]{.orange2} dernièrement:
   * Moins de `Jupyter` *notebooks*, plus de *linting* (`Ruff`)
   * Plus de dialogue avec devs, data engineers
   * Moins de travail en solo
